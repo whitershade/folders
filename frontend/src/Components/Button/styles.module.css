@@ -1,0 +1,19 @@
+.button {
+  display: flex;
+  flex-grow: 1;
+  padding: 0 10px;
+  margin-bottom: 15px;
+  justify-content: center;
+  border-radius: 5px;
+  min-height: 38px;
+  background-color: white;
+  align-items: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: 1px solid gray;
+  color: #000;
+}
+
+.button:not(:last-of-type) {
+  margin-right: 10px;
+}

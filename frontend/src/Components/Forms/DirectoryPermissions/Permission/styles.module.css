@@ -1,0 +1,15 @@
+.permission {
+  display: flex;
+}
+
+.select {
+  margin-right: 10px;
+}
+
+.usersSelect {
+  flex-grow: 7;
+}
+
+.permissionsSelect {
+  flex-grow: 2;
+}

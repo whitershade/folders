@@ -1,0 +1,13 @@
+.item {
+  padding: 10px;
+  border: 1px solid #D5CAD6;
+  margin-right: 5px;
+}
+
+.item:hover {
+  cursor: pointer;
+}
+
+.file {
+  background-color: #D5CAD6;
+}

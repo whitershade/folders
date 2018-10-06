@@ -1,0 +1,18 @@
+.folder {
+  display: flex;
+  padding: 5px;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.folderImage {
+  margin-right: 8px;
+}
+
+.folder:hover {
+  cursor: pointer;
+}
+
+.active {
+  background-color: #D5CAD6;
+}

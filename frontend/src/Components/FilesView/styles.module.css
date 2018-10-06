@@ -1,0 +1,9 @@
+.fileView {
+  display: flex;
+  align-items: flex-start;
+}
+
+.title {
+  margin: 0 0 10px;
+  padding: 0;
+}

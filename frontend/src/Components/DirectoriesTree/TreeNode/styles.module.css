@@ -1,0 +1,7 @@
+.active {
+  outline: 1px solid blue;
+}
+
+.innerPadding {
+  padding-left: 10px;
+}
