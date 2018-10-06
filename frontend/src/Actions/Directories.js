@@ -1,6 +1,6 @@
+import axios from 'axios';
 import { createAction } from 'redux-actions';
 import * as types from '../Constants/Directories';
-import { structure } from '../Constants/mock';
 import getFolders from '../Utils/getFolders';
 
 
@@ -14,13 +14,17 @@ export const toggleFolder = createAction(types.TOGGLE_FOLDER);
 export const markItemAsActive = createAction(types.MARK_ITEM_AS_ACTIVE);
 
 
-export const loadItems = () => (dispatch) => {
+export const loadItems = () => async (dispatch) => {
   dispatch(startLoadItems());
 
-  setTimeout(() => {
+  try {
+    const { data: structure } = await axios.get('/api/directories');
+
     dispatch(addStructure(structure));
     dispatch(addItems(getFolders(structure)));
-  }, 1000);
+  } catch (e) {
+    console.log(e);
+  }
 };
 
 export const updatePermissions = (id, permissions) => (dispatch, getState) => {

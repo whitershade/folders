@@ -1,6 +1,6 @@
+import axios from 'axios';
 import { createAction } from 'redux-actions';
 import * as types from '../Constants/Permissions';
-import { permissions } from '../Constants/mock';
 
 
 const startLoadItems = createAction(types.START_LOAD_ITEMS);
@@ -8,14 +8,16 @@ const addItems = createAction(types.ADD_ITEMS);
 const loadItemsError = createAction(types.LOAD_ITEMS_ERROR);
 
 
-export const loadItems = () => (dispatch, getState) => {
-  const { permissions: { didLoad } } = getState();
-
-  if (didLoad) return;
+export const loadItems = () => async (dispatch, getState) => {
+  if (getState().didLoad) return;
 
   dispatch(startLoadItems());
 
-  setTimeout(() => {
+  try {
+    const { data: permissions } = await axios.get('/api/permissions');
+
     dispatch(addItems(permissions));
-  }, 1000);
+  } catch (e) {
+    console.log(e);
+  }
 };
