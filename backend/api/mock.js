@@ -1,5 +1,5 @@
 const mock = {
-    structure: [
+  structure: [
     {
       id: '1',
       type: 'directories',
@@ -253,7 +253,7 @@ const mock = {
         name: 'RW',
       },
     },
-  }
-}
+  },
+};
 
 module.exports = mock;

@@ -5,7 +5,7 @@ const controllers = require('./controllers');
 const router = Router();
 
 router
-	.get('/', controllers.getItems)
+  .get('/', controllers.getItems);
 
 
 module.exports = router;

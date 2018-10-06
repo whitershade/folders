@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./"
   },
   "author": "whitershade",
   "license": "ISC",
@@ -12,5 +13,14 @@
     "app-root-path": "^2.1.0",
     "express": "^4.16.3",
     "lodash": "^4.17.11"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "es6": true
+    }
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^17.1.0"
   }
 }

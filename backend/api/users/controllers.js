@@ -3,9 +3,9 @@ const { users } = require('../mock.js');
 
 
 const controllers = {
-	getItems: (req, res) => {
-		res.status(200).send(users);
-	},
+  getItems: (req, res) => {
+    res.status(200).send(users);
+  },
 };
 
 
