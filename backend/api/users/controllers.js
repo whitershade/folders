@@ -1,4 +1,3 @@
-const { pick } = require('lodash');
 const { users } = require('../mock.js');
 
 

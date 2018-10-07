@@ -1,9 +1,9 @@
-const { permissions } = require('../mock.js');
+const { files } = require('../mock.js');
 
 
 const controllers = {
   getItems: (req, res) => {
-    res.status(200).send(permissions);
+    res.status(200).send(files);
   },
 };
 

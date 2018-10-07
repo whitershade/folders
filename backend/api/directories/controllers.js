@@ -1,9 +1,9 @@
-const { structure } = require('../mock.js');
+const { directories } = require('../mock.js');
 
 
 const controllers = {
   getItems: (req, res) => {
-    res.status(200).send(structure);
+    res.status(200).send(directories);
   },
 };
 

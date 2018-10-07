@@ -3,6 +3,7 @@ import * as appTypes from '../Constants/App';
 
 const initialState = {
   data: {},
+  files: {},
   structure: [],
   isLoading: false,
   activeDirectory: '',
@@ -17,18 +18,19 @@ export default function directoriesReducer(state = initialState, { payload, type
         isLoading: true,
       };
 
-    case types.ADD_STRUCTURE:
-      return {
-        ...state,
-        structure: payload,
-        isLoading: false,
-      };
-
     case types.ADD_ITEMS:
       return {
         ...state,
         data: payload,
+        isLoading: false,
       };
+
+    case types.ADD_FILES: {
+      return {
+        ...state,
+        files: payload,
+      };
+    }
 
     case types.LOAD_ITEMS_ERROR:
       return {

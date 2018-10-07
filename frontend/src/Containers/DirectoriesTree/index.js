@@ -5,13 +5,8 @@ import {
 } from '../../Actions/Directories';
 import { openEditDerectoryForm } from '../../Actions/App';
 import Component from '../../Components/DirectoriesTree';
+import Selector from '../../Selectors/DirectoriesTree';
 
-
-const mapStateToProps = state => ({
-  isLoading: state.directories.isLoading,
-  structure: state.directories.structure,
-  activeDirectory: state.directories.activeDirectory,
-});
 
 const mapDispatchToProps = dispatch => ({
   loadData: () => {
@@ -22,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
 });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Component);
+export default connect(Selector, mapDispatchToProps)(Component);
