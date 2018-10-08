@@ -1,5 +1,6 @@
 import * as types from '../Constants/Directories';
 import * as appTypes from '../Constants/App';
+import addParentIds from '../Utils/addParentIds';
 import showOpenDirectoryFullPath from '../Utils/showOpenDirectoryFullPath';
 
 
@@ -23,7 +24,7 @@ export default function directoriesReducer(state = initialState, { payload, type
     case types.ADD_ITEMS:
       return {
         ...state,
-        data: payload,
+        data: addParentIds(payload),
         isLoading: false,
       };
 

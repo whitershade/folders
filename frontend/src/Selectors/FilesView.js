@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 import { createSelector, createStructuredSelector } from 'reselect';
-import { find, get, isEmpty } from 'lodash';
+import { get, isEmpty } from 'lodash';
 import getStructure from '../Utils/getStructure';
 
 
@@ -44,17 +44,8 @@ const structure = createSelector(
 );
 
 const parentId = createSelector(
-  [currentDirectory, directories],
-  (currentDirectory, directories) => {
-    const parentDirectory = find(
-      directories,
-      ({ attributes: { children } }) => children.find(
-        ({ id, type }) => id === currentDirectory.id && type === 'directories',
-      ),
-    );
-
-    return get(parentDirectory, 'id');
-  },
+  [currentDirectory],
+  currentDirectory => get(currentDirectory, 'attributes.parentId'),
 );
 
 
