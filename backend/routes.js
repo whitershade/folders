@@ -5,6 +5,8 @@ const api = require('./api');
 
 
 module.exports = (app) => {
+  app.use(express.json());
+
   app.use('/api', api);
 
   app.use((err, req, res, next) => {

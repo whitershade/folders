@@ -9,6 +9,7 @@ const initialState = {
   files: {},
   structure: [],
   isLoading: false,
+  isPushing: false,
   activeDirectory: '',
   editId: '',
 };
@@ -85,8 +86,22 @@ export default function directoriesReducer(state = initialState, { payload, type
         ...state,
         data: {
           ...state.data,
-          [payload.id]: payload,
+          [payload.id]: {
+            ...state.data[payload.id],
+            attributes: {
+              ...state.data[payload.id].attributes,
+              ...payload.attributes,
+            },
+          },
         },
+        isPushing: false,
+      };
+    }
+
+    case types.PUSH_ITEM_ERROR: {
+      return {
+        ...state,
+        isPushing: false,
       };
     }
 

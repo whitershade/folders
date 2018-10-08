@@ -14,7 +14,6 @@ const Form = reduxForm({
   enableReinitialize: true, // fix issue "Redux Form - initialValues not updating with state" (http://stackoverflow.com/questions/38881324/redux-form-initialvalues-not-updating-with-state)
   updateUnregisteredFields: true,
   onSubmit: ({ permissions }, dispatch, { editId }) => {
-    dispatch(closeEditDirectoryForm());
     dispatch(updatePermissions(editId, permissions));
   },
 })(Component);

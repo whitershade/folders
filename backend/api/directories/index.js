@@ -5,7 +5,8 @@ const controllers = require('./controllers');
 const router = Router();
 
 router
-  .get('/', controllers.getItems);
+  .get('/', controllers.getItems)
+  .patch('/:id', controllers.updateItem);
 
 
 module.exports = router;

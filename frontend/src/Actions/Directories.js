@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAction } from 'redux-actions';
 import * as types from '../Constants/Directories';
+import { closeEditDirectoryForm } from './App';
 import { showSuccess, showError } from './Notifications';
 
 
@@ -10,6 +11,7 @@ const addFiles = createAction(types.ADD_FILES);
 const loadItemsError = createAction(types.LOAD_ITEMS_ERROR);
 const startPushItem = createAction(types.START_PUSH_ITEM);
 const updateItem = createAction(types.UPDATE_ITEM);
+const pushItemError = createAction(types.PUSH_ITEM_ERROR);
 export const toggleFolder = createAction(types.TOGGLE_FOLDER);
 export const markItemAsActive = createAction(types.MARK_ITEM_AS_ACTIVE);
 
@@ -32,21 +34,17 @@ export const loadItems = () => (dispatch) => {
     });
 };
 
-export const updatePermissions = (id, permissions) => (dispatch, getState) => {
+export const updatePermissions = (id, permissions) => async (dispatch) => {
   dispatch(startPushItem());
 
-  setTimeout(() => {
-    const initialDirectory = getState().directories.data[id];
+  try {
+    const { data: updatedDirectory } = await axios.patch(`/api/directories/${id}`, { permissions });
 
-    const directory = {
-      ...initialDirectory,
-      attributes: {
-        ...initialDirectory.attributes,
-        permissions,
-      },
-    };
-
-    dispatch(updateItem(directory));
+    dispatch(updateItem(updatedDirectory));
+    dispatch(closeEditDirectoryForm());
     dispatch(showSuccess('Directory pemissions updated'));
-  }, 1000);
+  } catch (error) {
+    dispatch(pushItemError());
+    dispatch(showError(error));
+  }
 };

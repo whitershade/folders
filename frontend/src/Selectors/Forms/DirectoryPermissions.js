@@ -7,6 +7,7 @@ const users = ({ users: { data = [] } }) => data;
 const usersIsLoading = ({ users: { isLoading } }) => isLoading;
 const permissionsIsLoading = ({ permissions: { isLoading } }) => isLoading;
 const permissions = ({ permissions: { data } }) => data;
+const isPushing = ({ directories: { isPushing } }) => isPushing;
 const formValues = ({ form }) => get(form, 'DirectoryPermissions.values.permissions');
 const editId = ({ directories: { activeDirectory } }) => activeDirectory;
 const directories = ({ directories: { data } }) => data;
@@ -64,6 +65,7 @@ export default createStructuredSelector({
   editId,
   formName,
   isLoading,
+  isPushing,
   initialValues,
   users: usersOptions,
   allUsers: allUsersOptions,

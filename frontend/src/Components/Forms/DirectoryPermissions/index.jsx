@@ -17,6 +17,7 @@ export default class DirectoryPemissionsForm extends PureComponent {
     permissions: PropTypes.arrayOf(PropTypes.object).isRequired,
     allUsers: PropTypes.arrayOf(PropTypes.object).isRequired,
     isLoading: PropTypes.bool.isRequired,
+    isPushing: PropTypes.bool.isRequired,
   }
 
   componentDidMount() {
@@ -32,13 +33,14 @@ export default class DirectoryPemissionsForm extends PureComponent {
         allUsers,
         formName,
         isLoading,
+        isPushing,
         permissions,
         handleSubmit,
         closeEditDirectoryForm,
       },
     } = this;
 
-    if (isLoading) return <Loading />;
+    if (isLoading || isPushing) return <Loading />;
 
     return (
       <form onSubmit={handleSubmit} className={styles.form}>
