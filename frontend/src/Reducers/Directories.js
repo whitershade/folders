@@ -1,5 +1,6 @@
 import * as types from '../Constants/Directories';
 import * as appTypes from '../Constants/App';
+import showOpenDirectoryFullPath from '../Utils/showOpenDirectoryFullPath';
 
 
 const initialState = {
@@ -40,33 +41,11 @@ export default function directoriesReducer(state = initialState, { payload, type
       };
 
     case types.MARK_ITEM_AS_ACTIVE: {
-      const openPathDirectory = (directories, id) => {
-        const directory = directories[id];
-        const { attributes: { parentId } } = directories[id];
-
-        const directoryWithOpenedFolder = {
-          ...directory,
-          attributes: {
-            ...directory.attributes,
-            isFolderOpen: true,
-          },
-        };
-
-        if (parentId) {
-          return {
-            ...openPathDirectory(directories, parentId),
-            [directoryWithOpenedFolder.id]: directoryWithOpenedFolder,
-          };
-        }
-
-        return { [directoryWithOpenedFolder.id]: directoryWithOpenedFolder };
-      };
-
       return {
         ...state,
         data: {
           ...state.data,
-          ...openPathDirectory(state.data, payload),
+          ...showOpenDirectoryFullPath(state.data, payload),
         },
         activeDirectory: payload,
       };
