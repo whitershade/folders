@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './styles.module.css';
 
 
 const wrapField = (Component) => {
@@ -10,15 +11,18 @@ const wrapField = (Component) => {
       ...props
     },
   ) => (
-    <React.Fragment>
+    <div className={`${props.className} ${styles.wrapper}`}>
       <Component
         {...input}
         {...props}
+        error={!!((error && touched))}
       />
-      {
-        (error && touched) ? <span>{ error }</span> : null
-      }
-    </React.Fragment>
+      { (error && touched) ? (
+        <span className={styles.error}>
+          { error }
+        </span>
+      ) : null }
+    </div>
   );
 
   field.propTypes = {

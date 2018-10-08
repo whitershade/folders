@@ -4,6 +4,15 @@ import Select from 'react-select';
 import { isPlainObject } from 'lodash';
 import wrapField from './FieldWrapper';
 
+const customStyles = error => ({
+  control: styles => ({
+    ...styles,
+    borderColor: error ? 'red' : styles.borderColor,
+    ':hover': {
+      borderColor: error ? 'red' : styles.borderColor,
+    },
+  }),
+});
 
 const onSelectChange = onChange => (e) => {
   const nextVal = isPlainObject(e) ? e.value : e;
@@ -18,6 +27,7 @@ const SelectWrapper = (props) => {
     <Select
       {...props}
       placeholder="Select"
+      styles={customStyles(props.error)}
       value={allOptions.find(({ value }) => value === props.value)}
       onChange={onSelectChange(props.onChange)}
       onBlur={() => props.onBlur(props.value)}
@@ -26,6 +36,7 @@ const SelectWrapper = (props) => {
 };
 
 SelectWrapper.propTypes = {
+  error: PropTypes.bool.isRequired,
   onBlur: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   options: PropTypes.oneOfType([PropTypes.object, PropTypes.arrayOf(PropTypes.object)]).isRequired,

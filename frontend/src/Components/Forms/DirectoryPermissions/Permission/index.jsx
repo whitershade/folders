@@ -1,6 +1,7 @@
 import React from 'react';
 import { Field } from 'redux-form';
 import PropTypes from 'prop-types';
+import { required } from '../../../../Utils/validationTypes';
 import Select from '../../Fields/Select';
 import Button from '../../../Buttons/Default';
 import styles from './styles.module.css';
@@ -11,6 +12,7 @@ const Permission = ({
 }) => (
   <div className={styles.permission}>
     <Field
+      validate={required}
       className={`${styles.usersSelect} ${styles.select}`}
       options={users}
       allOptions={allUsers}
@@ -18,6 +20,7 @@ const Permission = ({
       name={`${field}.email`}
     />
     <Field
+      validate={required}
       className={`${styles.permissionsSelect} ${styles.select}`}
       component={Select}
       options={permissions}

@@ -6,7 +6,7 @@
 
   box-sizing: border-box;
   min-height: 38px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   padding: 0 10px;
 
   text-decoration: none;
@@ -15,6 +15,8 @@
   border: 1px solid gray;
   border-radius: 5px;
   background-color: white;
+
+  font-size: 14px;
 }
 
 .button:not(:last-of-type) {
