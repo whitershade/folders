@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes, { objectOf, oneOfType } from 'prop-types';
 import { isEmpty } from 'lodash';
-import Button from '../../../Button';
+import Button from '../../../Buttons/Default';
 import Permission from '../Permission';
 import EmptyPermissions from '../EmptyPermissions';
 import styles from './styles.module.css';

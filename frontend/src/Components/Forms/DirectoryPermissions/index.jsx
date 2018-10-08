@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { FieldArray } from 'redux-form';
 import Loading from '../../Loading';
-import Button from '../../Button';
+import Button from '../../Buttons/Default';
 import Permissions from './Permissions';
 import styles from './styles.module.css';
 

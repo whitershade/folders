@@ -20,10 +20,10 @@
   border-radius: 5px;
 }
 
-main {
+.main {
   box-sizing: border-box;
   border: 1px solid #D5CAD6;
   height: 100%;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
 }

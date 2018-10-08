@@ -8,7 +8,6 @@ import styles from './styles.module.css';
 export default class DirectoriesTree extends PureComponent {
   static propTypes = {
     loadData: PropTypes.func.isRequired,
-    openEditDerectoryForm: PropTypes.func.isRequired,
     markDirectoryAsActive: PropTypes.func.isRequired,
     activeDirectory: PropTypes.string,
     structure: PropTypes.arrayOf(PropTypes.object).isRequired,

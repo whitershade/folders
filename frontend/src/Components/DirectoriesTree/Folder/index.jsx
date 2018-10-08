@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import OpenPermissionsFormButton from '../../../Containers/Buttons/OpenPermissionsForm';
 import openedFolder from '../../../Images/opened-folder.svg';
 import closedFolder from '../../../Images/closed-folder.svg';
-import lockFolder from '../../../Images/lock.svg';
 import styles from './styles.module.css';
 
 
@@ -14,7 +14,6 @@ export default class Folder extends PureComponent {
     isFolderOpen: PropTypes.bool,
     toggleFolder: PropTypes.func.isRequired,
     markDirectoryAsActive: PropTypes.func.isRequired,
-    openEditDerectoryForm: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
@@ -39,20 +38,11 @@ export default class Folder extends PureComponent {
     activateDirectory();
   }
 
-  onEditClick = () => {
-    const {
-      props: { openEditDerectoryForm },
-      activateDirectory,
-    } = this;
-
-    activateDirectory();
-    openEditDerectoryForm();
-  }
-
   render() {
     const {
-      props: { name, active, isFolderOpen },
-      onEditClick,
+      props: {
+        name, active, isFolderOpen, id,
+      },
       onFolderClick,
       onFolderIconClick,
     } = this;
@@ -84,18 +74,7 @@ export default class Folder extends PureComponent {
           {name}
         </span>
 
-        <div
-          className={styles.editPermissionsImageWrapper}
-          tabIndex="0"
-          role="button"
-          onClick={onEditClick}
-          onKeyPress={onEditClick}
-        >
-          <img
-            src={lockFolder}
-            alt="edit permissions"
-          />
-        </div>
+        <OpenPermissionsFormButton activeDirectory={id} />
       </div>
     );
   }

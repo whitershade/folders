@@ -2,7 +2,7 @@ import React from 'react';
 import { Field } from 'redux-form';
 import PropTypes from 'prop-types';
 import Select from '../../Fields/Select';
-import Button from '../../../Button';
+import Button from '../../../Buttons/Default';
 import styles from './styles.module.css';
 
 
