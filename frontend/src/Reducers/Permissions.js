@@ -1,10 +1,12 @@
 import * as types from '../Constants/Permissions';
 
+
 const initialState = {
   data: {},
   isLoading: false,
   didLoad: false,
 };
+
 
 export default function permissionsReducer(state = initialState, { payload, type }) {
   switch (type) {

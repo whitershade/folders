@@ -1,8 +1,20 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.module.css';
 
 
 export default class Item extends PureComponent {
+  static propTypes = {
+    type: PropTypes.string,
+    onClick: PropTypes.func,
+    children: PropTypes.string.isRequired,
+  }
+
+  static defaultProps = {
+    onClick: () => {},
+    type: '',
+  }
+
   render() {
     const {
       props: { children, onClick, type },
@@ -11,7 +23,10 @@ export default class Item extends PureComponent {
     return (
       <div
         onClick={onClick}
-        className={`${styles.item} ${type === 'files' ? styles.file : ''}`}
+        tabIndex="0"
+        role="button"
+        onKeyPress={onClick}
+        className={`${styles.item} ${type === 'directories' ? styles.directory : ''}`}
       >
         { children }
       </div>

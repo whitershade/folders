@@ -3,12 +3,11 @@
   align-items: center;
   justify-content: center;
 
+  box-sizing: border-box;
   min-height: 38px;
   margin-bottom: 15px;
   padding: 0 15px;
 
   border: 1px dashed #9D96B8;
   border-radius: 5px;
-
-  box-sizing: border-box;
 }

@@ -18,6 +18,6 @@ export const loadItems = () => async (dispatch, getState) => {
 
     dispatch(addItems(users));
   } catch (e) {
-    console.log(e);
+    dispatch(loadItemsError());
   }
 };

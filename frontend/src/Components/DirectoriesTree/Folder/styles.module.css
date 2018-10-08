@@ -1,12 +1,15 @@
 .folder {
   display: flex;
   padding: 5px;
-  border-radius: 5px;
   box-sizing: border-box;
 }
 
-.folderImage {
+.folderIconImageWrapper {
   margin-right: 8px;
+}
+
+.editPermissionsImageWrapper {
+  margin-left: 8px;
 }
 
 .folder:hover {
@@ -15,4 +18,8 @@
 
 .active {
   background-color: #D5CAD6;
+}
+
+.folderName {
+  flex-grow: 1;
 }

@@ -1,6 +1,7 @@
 import * as types from '../Constants/Directories';
 import * as appTypes from '../Constants/App';
 
+
 const initialState = {
   data: {},
   files: {},

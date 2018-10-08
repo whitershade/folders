@@ -6,10 +6,15 @@ import styles from './styles.module.css';
 
 export default class Files extends PureComponent {
   static propTypes = {
-    path: PropTypes.string.isRequired,
-    parentId: PropTypes.string.isRequired,
+    path: PropTypes.string,
+    parentId: PropTypes.string,
     markDirectoryAsActive: PropTypes.func.isRequired,
     files: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }
+
+  static defaultProps = {
+    path: '',
+    parentId: '',
   }
 
   onClick = id => () => {
@@ -37,6 +42,7 @@ export default class Files extends PureComponent {
           files.map(({ id, type, name }) => (
             <Item
               key={id}
+              type={type}
               onClick={type === 'directories' ? onClick(id) : null}
             >
               { name }

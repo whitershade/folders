@@ -1,10 +1,12 @@
 import * as types from '../Constants/Users';
 
+
 const initialState = {
   data: {},
   isLoading: false,
   didLoad: false,
 };
+
 
 export default function usersReducer(state = initialState, { payload, type }) {
   switch (type) {

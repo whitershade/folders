@@ -21,55 +21,81 @@ export default class Folder extends PureComponent {
     isFolderOpen: false,
   }
 
-  onFolderClick = () => {
+  onFolderIconClick = () => {
     const { props: { toggleFolder, id } } = this;
 
     toggleFolder(id);
   }
 
-  onFolderDoubleClick = () => {
+  activateDirectory = () => {
     const { props: { markDirectoryAsActive, id } } = this;
 
-    markDirectoryAsActive(id);
+    markDirectoryAsActive(id)();
+  }
+
+  onFolderClick = () => {
+    const { activateDirectory } = this;
+
+    activateDirectory();
   }
 
   onEditClick = () => {
-    const { props: { markDirectoryAsActive, openEditDerectoryForm, id } } = this;
+    const {
+      props: { openEditDerectoryForm },
+      activateDirectory,
+    } = this;
 
-    markDirectoryAsActive(id)();
+    activateDirectory();
     openEditDerectoryForm();
   }
 
   render() {
     const {
-      props: {
-        name, markDirectoryAsActive, id, active, openEditDerectoryForm, isFolderOpen,
-      },
+      props: { name, active, isFolderOpen },
       onEditClick,
       onFolderClick,
-      onFolderDoubleClick,
+      onFolderIconClick,
     } = this;
 
 
     return (
-      <div
-        onDoubleClick={onFolderDoubleClick}
-        className={`${styles.folder} ${active ? styles.active : ''}`}
-      >
-        <img
-          onClick={onFolderClick}
-          className={styles.folderImage}
-          src={isFolderOpen ? openedFolder : closedFolder}
-        />
+      <div className={`${styles.folder} ${active ? styles.active : ''}`}>
+        <div
+          className={styles.folderIconImageWrapper}
+          tabIndex="0"
+          role="button"
+          onClick={onFolderIconClick}
+          onKeyPress={onFolderIconClick}
+        >
+          <img
+            className={styles.folderImage}
+            src={isFolderOpen ? openedFolder : closedFolder}
+            alt={`${isFolderOpen ? 'opened folder' : 'closed folder'}`}
+          />
+        </div>
 
-        <span onClick={markDirectoryAsActive(id)}>
+        <span
+          tabIndex="0"
+          role="button"
+          onClick={onFolderClick}
+          onKeyPress={onFolderClick}
+          className={styles.folderName}
+        >
           {name}
         </span>
 
-        <img
+        <div
+          className={styles.editPermissionsImageWrapper}
+          tabIndex="0"
+          role="button"
           onClick={onEditClick}
-          src={lockFolder}
-        />
+          onKeyPress={onEditClick}
+        >
+          <img
+            src={lockFolder}
+            alt="edit permissions"
+          />
+        </div>
       </div>
     );
   }

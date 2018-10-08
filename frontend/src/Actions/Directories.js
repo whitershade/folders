@@ -13,14 +13,20 @@ export const toggleFolder = createAction(types.TOGGLE_FOLDER);
 export const markItemAsActive = createAction(types.MARK_ITEM_AS_ACTIVE);
 
 
-export const loadItems = () => async (dispatch) => {
+export const loadItems = () => (dispatch) => {
   dispatch(startLoadItems());
 
   Promise
-    .all([axios.get('/api/directories'), axios.get('/api/files')])
+    .all([
+      axios.get('/api/directories'),
+      axios.get('/api/files'),
+    ])
     .then(([{ data: directories }, { data: files }]) => {
       dispatch(addItems(directories));
       dispatch(addFiles(files));
+    })
+    .catch(() => {
+      dispatch(loadItemsError());
     });
 };
 

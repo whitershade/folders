@@ -1,17 +1,20 @@
 .button {
   display: flex;
-  flex-grow: 1;
-  padding: 0 10px;
-  margin-bottom: 15px;
-  justify-content: center;
-  border-radius: 5px;
-  min-height: 38px;
-  background-color: white;
   align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+
   box-sizing: border-box;
+  min-height: 38px;
+  margin-bottom: 15px;
+  padding: 0 10px;
+
   text-decoration: none;
-  border: 1px solid gray;
+
   color: #000;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: white;
 }
 
 .button:not(:last-of-type) {

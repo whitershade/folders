@@ -10,8 +10,12 @@ export default class TreeNode extends PureComponent {
   static propTypes = {
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    children: PropTypes.arrayOf(PropTypes.object).isRequired,
+    children: PropTypes.arrayOf(PropTypes.object),
   };
+
+  static defaultProps = {
+    children: null,
+  }
 
   render() {
     const {
