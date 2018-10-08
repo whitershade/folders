@@ -28,7 +28,7 @@ const SelectWrapper = (props) => {
       {...props}
       placeholder="Select"
       styles={customStyles(props.error)}
-      value={allOptions.find(({ value }) => value === props.value)}
+      value={allOptions.find(({ value }) => value === props.value) || null}
       onChange={onSelectChange(props.onChange)}
       onBlur={() => props.onBlur(props.value)}
     />
