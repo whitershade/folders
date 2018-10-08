@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import Notifications from '../Notifications';
 import Files from '../../Containers/FilesView';
 import DirectoriesTree from '../../Containers/DirectoriesTree';
 import DirectoryPermissionsForm from '../../Containers/Forms/DirectoryPermissions';
@@ -16,6 +17,7 @@ export default class App extends PureComponent {
 
     return (
       <div className={styles.container}>
+        <Notifications />
         <div className={styles.wrapper}>
           <aside className={styles.aside}>
             <DirectoriesTree />

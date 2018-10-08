@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAction } from 'redux-actions';
 import * as types from '../Constants/Directories';
+import { showSuccess, showError } from './Notifications';
 
 
 const startLoadItems = createAction(types.START_LOAD_ITEMS);
@@ -25,8 +26,9 @@ export const loadItems = () => (dispatch) => {
       dispatch(addItems(directories));
       dispatch(addFiles(files));
     })
-    .catch(() => {
+    .catch((error) => {
       dispatch(loadItemsError());
+      dispatch(showError(error));
     });
 };
 
@@ -35,6 +37,7 @@ export const updatePermissions = (id, permissions) => (dispatch, getState) => {
 
   setTimeout(() => {
     const initialDirectory = getState().directories.data[id];
+
     const directory = {
       ...initialDirectory,
       attributes: {
@@ -44,5 +47,6 @@ export const updatePermissions = (id, permissions) => (dispatch, getState) => {
     };
 
     dispatch(updateItem(directory));
+    dispatch(showSuccess('Directory pemissions updated'));
   }, 1000);
 };

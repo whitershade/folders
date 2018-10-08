@@ -1,16 +1,19 @@
 .container {
-  max-width: 1000px;
-  padding: 10px 15px;
-  margin: 0 auto;
-  box-sizing: border-box;
-  min-height: 100vh;
   display: flex;
+
+  box-sizing: border-box;
+  max-width: 1000px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 10px;
 }
 
 .wrapper {
-  flex-grow: 1;
-  box-sizing: border-box;
   display: grid;
+  flex-grow: 1;
+
+  box-sizing: border-box;
+
   grid-template-columns: 1fr 2fr;
   grid-column-gap: 10px;
 }
@@ -22,8 +25,9 @@
 
 .main {
   box-sizing: border-box;
-  border: 1px solid #D5CAD6;
   height: 100%;
-  border-radius: 5px;
   padding: 5px 10px;
+
+  border: 1px solid #D5CAD6;
+  border-radius: 5px;
 }

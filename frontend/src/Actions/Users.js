@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { createAction } from 'redux-actions';
 import * as types from '../Constants/Users';
+import { showError } from './Notifications';
 
 
 const startLoadItems = createAction(types.START_LOAD_ITEMS);
@@ -17,7 +18,8 @@ export const loadItems = () => async (dispatch, getState) => {
     const { data: users } = await axios.get('/api/users');
 
     dispatch(addItems(users));
-  } catch (e) {
+  } catch (error) {
     dispatch(loadItemsError());
+    dispatch(showError(error));
   }
 };
