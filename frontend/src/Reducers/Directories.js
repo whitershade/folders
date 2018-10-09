@@ -14,6 +14,7 @@ const initialState = {
   editId: '',
 };
 
+
 export default function directoriesReducer(state = initialState, { payload, type }) {
   switch (type) {
     case types.START_LOAD_ITEMS:

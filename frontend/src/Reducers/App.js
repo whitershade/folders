@@ -1,8 +1,10 @@
 import * as types from '../Constants/App';
 
+
 const initialState = {
   isDirectoryFormOpen: false,
 };
+
 
 export default function appReducer(state = initialState, { type }) {
   switch (type) {

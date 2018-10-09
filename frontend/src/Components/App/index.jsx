@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Notifications from '../Notifications';
-import Files from '../../Containers/FilesView';
+import DirectoriesView from '../../Containers/DirectoriesView';
 import DirectoriesTree from '../../Containers/DirectoriesTree';
 import DirectoryPermissionsForm from '../../Containers/Forms/DirectoryPermissions';
 import styles from './styles.module.css';
@@ -23,7 +23,7 @@ export default class App extends PureComponent {
             <DirectoriesTree />
           </aside>
           <main className={styles.main}>
-            { isDirectoryFormOpen ? <DirectoryPermissionsForm /> : <Files /> }
+            { isDirectoryFormOpen ? <DirectoryPermissionsForm /> : <DirectoriesView /> }
           </main>
         </div>
       </div>

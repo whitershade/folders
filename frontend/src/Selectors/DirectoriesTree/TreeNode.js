@@ -2,6 +2,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { get } from 'lodash';
 
+
 const id = (state, { id }) => id;
 const directories = ({ directories: { data } }) => data;
 

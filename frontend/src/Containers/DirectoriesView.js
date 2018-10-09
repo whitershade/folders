@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Component from '../Components/FilesView';
+import Component from '../Components/DirectoriesView';
 import { markItemAsActive as markDirectoryAsActive } from '../Actions/Directories';
 import Selector from '../Selectors/FilesView';
 
