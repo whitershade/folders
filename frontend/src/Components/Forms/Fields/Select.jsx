@@ -26,6 +26,7 @@ const SelectWrapper = (props) => {
   return (
     <Select
       {...props}
+      isSearchable={false}
       placeholder="Select"
       styles={customStyles(props.error)}
       value={allOptions.find(({ value }) => value === props.value) || null}
