@@ -10,7 +10,9 @@ const loadItemsError = createAction(types.LOAD_ITEMS_ERROR);
 
 
 export const loadItems = () => async (dispatch, getState) => {
-  if (getState().didLoad) return;
+  const { permissions: { didLoad } } = getState();
+
+  if (didLoad) return;
 
   dispatch(startLoadItems());
 
