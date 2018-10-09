@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
+import fileIcon from '../../../Images/file.svg';
 import styles from './styles.module.css';
 
 
@@ -13,9 +14,12 @@ export default class File extends PureComponent {
 
     return (
       <div className={styles.file}>
-        <span>
-          {name}
-        </span>
+        <img
+          alt="file"
+          src={fileIcon}
+          className={styles.icon}
+        />
+        {name}
       </div>
     );
   }
