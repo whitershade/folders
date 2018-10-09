@@ -1,7 +1,10 @@
 .folder {
   display: flex;
-  padding: 5px;
+
   box-sizing: border-box;
+  padding: 5px;
+
+  white-space: nowrap;
 }
 
 .folderIconImageWrapper {
@@ -13,7 +16,7 @@
 }
 
 .active {
-  background-color: #D5CAD6;
+  background-color: var(--main-color);
 }
 
 .folderName {

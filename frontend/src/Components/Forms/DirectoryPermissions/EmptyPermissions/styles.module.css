@@ -8,6 +8,6 @@
   margin-bottom: 20px;
   padding: 0 15px;
 
-  border: 1px dashed #9D96B8;
+  border: 1px dashed var(--secondary-color);
   border-radius: 5px;
 }

@@ -1,6 +1,6 @@
 .item {
   padding: 10px;
-  border: 1px solid #D5CAD6;
+  border: 1px solid var(--main-color);
   margin-right: 5px;
   margin-bottom: 5px;
 }
@@ -10,5 +10,5 @@
 }
 
 .directory {
-  background-color: #D5CAD6;
+  background-color: var(--main-color);
 }

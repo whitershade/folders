@@ -72,6 +72,7 @@ export default class Folder extends PureComponent {
           className={styles.folderName}
         >
           {name}
+          &nbsp;
         </span>
 
         <OpenPermissionsFormButton activeDirectory={id} />

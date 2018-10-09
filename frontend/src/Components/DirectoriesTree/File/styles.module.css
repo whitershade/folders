@@ -3,8 +3,12 @@
   align-items: center;
 
   padding: 5px;
+  padding-right: 10px;
+  margin-right: 10px;
+
+  white-space: nowrap;
 }
 
 .icon {
-  margin-right: 4px;
+  margin-right: 3px;
 }

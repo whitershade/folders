@@ -19,7 +19,10 @@ export default class File extends PureComponent {
           src={fileIcon}
           className={styles.icon}
         />
-        {name}
+        <span>
+          {name}
+          &nbsp;
+        </span>
       </div>
     );
   }

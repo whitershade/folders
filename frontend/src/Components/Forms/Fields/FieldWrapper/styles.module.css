@@ -9,7 +9,7 @@
   bottom: 5px;
   left: 1px;
 
-  color: red;
+  color: var(--error-color);
 
   font-size: 12px;
 }
